@@ -58,13 +58,11 @@ def remove(jpg_folder, raw_folder):
     return files_to_keep
 
 
-
-
 if __name__ == "__main__":
 
     # Enter source and destionation directories
-    source = input("Source folder where files are: ")
-    destination = input("Destignation folder where files will be copied to: ")
+    source = input("Enter ource folder where files are: ")
+    destination = input("Enter destination folder where files will be copied to: ")
 
     # Folders created 
     jpg_folder = destination + "\\" + "jpg-photos"
