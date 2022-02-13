@@ -52,10 +52,17 @@ def remove(jpg_folder, raw_folder):
     jpg_files = read_directory(jpg_folder)
     raw_files = read_directory(raw_folder)
 
-    files_to_keep = raw_files and jpg_files
+    filenames_to_keep = list( map(lambda el : el.split(".")[0], jpg_files) )
+    #files_to_remove = list(set(raw_files) ^ set(files_to_keep))
 
-    # Remove all files from raw except files_to_keep
-    return files_to_keep
+    # Changing .JPG to .ARW
+    #filenames_to_remove = list( map(lambda el : el.split(".")[0] + ".ARW", files_to_remove) )
+
+    for f in raw_files:
+        filename = f.split(".")[0]
+        if filename not in filenames_to_keep:
+            path = raw_folder + "\\" + filename + ".ARW"
+            os.remove(path)
 
 
 if __name__ == "__main__":
@@ -77,4 +84,4 @@ if __name__ == "__main__":
         blank = input("Press ENTER when you've removed some files from jpg-folder: ")
 
         if blank == "":
-            print(remove(jpg_folder, raw_folder))
+            remove(jpg_folder, raw_folder)
