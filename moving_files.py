@@ -41,23 +41,16 @@ def main_copy(source, destination):
             print("Files moved succesfully!")
 
 
-# When files are removed from one folder, they should be also 
-# removed from the other folder (both ways).
-
-
 def remove(jpg_folder, raw_folder):
-    # List files from both directories, compare them and only 
-    # keep the ones that are repeated
+    '''List files from both directories, compare them and only 
+    keep the ones that are repeated'''
 
     jpg_files = read_directory(jpg_folder)
     raw_files = read_directory(raw_folder)
 
     filenames_to_keep = list( map(lambda el : el.split(".")[0], jpg_files) )
-    #files_to_remove = list(set(raw_files) ^ set(files_to_keep))
 
-    # Changing .JPG to .ARW
-    #filenames_to_remove = list( map(lambda el : el.split(".")[0] + ".ARW", files_to_remove) )
-
+    # Remove .ARW files that are not in jpg_folder
     for f in raw_files:
         filename = f.split(".")[0]
         if filename not in filenames_to_keep:
