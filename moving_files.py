@@ -72,8 +72,11 @@ if __name__ == "__main__":
 
     main_copy(source, destination)
 
-    print("Now it's the time to remove some files!!!!\n")
-    blank = input("Press ENTER when you've removed some files from jpg-folder: ")
+    i = input("Do you want to REMOVE some files? [Y/N] ")
 
-    if blank is "":
-        print(remove(jpg_folder, raw_folder))
+    if i == "Y" or i == "y":
+        print("Time to remove some files!!!!\n")
+        blank = input("Press ENTER when you've removed some files from jpg-folder: ")
+
+        if blank == "":
+            print(remove(jpg_folder, raw_folder))
