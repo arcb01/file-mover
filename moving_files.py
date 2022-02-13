@@ -61,7 +61,7 @@ def remove(jpg_folder, raw_folder):
 if __name__ == "__main__":
 
     # Enter source and destionation directories
-    source = input("Enter source folder where files are: ")
+    source = input("\nEnter source folder where files are: ")
     destination = input("Enter destination folder where files will be copied to: ")
 
     # Folders created 
@@ -70,7 +70,7 @@ if __name__ == "__main__":
 
     main_copy(source, destination)
 
-    i = input("Do you want to REMOVE some files? [Y/N] ")
+    i = input("\nDo you want to REMOVE some files? [Y/N] ")
 
     if i == "Y" or i == "y":
         print("Time to remove some files!!!!\n")
