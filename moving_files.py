@@ -21,9 +21,6 @@ def make_folders(destination):
 
 
 def main_copy(source, destination):
-    
-    make_folders(destination)
-    
 
     # List of all files inside directory
     files_fullpath = [f for f in listdir(source) 
@@ -58,6 +55,11 @@ def remove(jpg_folder, raw_folder):
             os.remove(path)
 
 
+
+
+
+
+
 if __name__ == "__main__":
 
     # Enter source and destionation directories
@@ -67,7 +69,8 @@ if __name__ == "__main__":
     # Folders created 
     jpg_folder = destination + "\\" + "jpg-photos"
     raw_folder = destination + "\\" + "raw-photos"
-
+    
+    make_folders(destination)
     main_copy(source, destination)
 
     i = input("\nDo you want to REMOVE some files? [Y/N] ")
@@ -78,3 +81,5 @@ if __name__ == "__main__":
 
         if blank == "":
             remove(jpg_folder, raw_folder)
+
+
