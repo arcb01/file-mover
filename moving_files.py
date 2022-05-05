@@ -4,6 +4,7 @@ from os import listdir
 from os.path import isfile, join
 from pathlib import Path
 import shutil
+import time
 
 
 def read_directory(path):
@@ -57,10 +58,8 @@ def remove(jpg_folder, raw_folder):
 
 
 
-
-
-
 if __name__ == "__main__":
+    start = time.time()
 
     # Enter source and destionation directories
     source = input("\nEnter source folder where files are: ")
@@ -82,4 +81,7 @@ if __name__ == "__main__":
         if blank == "":
             remove(jpg_folder, raw_folder)
 
-
+    end = time.time()
+    no_of_ciles = len(jpg_folder) + len(raw_folder)
+    time_elapsed = end - start
+    print(f"Copied {no_of_ciles} files in {time_elapsed}s")
